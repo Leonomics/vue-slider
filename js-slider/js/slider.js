@@ -1,39 +1,46 @@
 // console.log('slider')
 
 const slides = [
-	{
-		id:1,
-		media:'./img/01.jpg',
-	},
-	{
-		id:2,
-		media:'./img/02.jpg',
-	},
-	{
-		id:3,
-		media:'./img/03.jpg',
-	},
-	{
-		id:4,
-		media:'./img/04.jpg',
-	},
-	{
-		id:5,
-		media:'./img/05.jpg',
-	}
-]
+			
+		'./img/01.jpg',
+	
+	
+		'./img/02.jpg',
+	
+	
+		'./img/03.jpg',
+	
+	
+		'./img/04.jpg',
+	
+	
+		'./img/05.jpg',
+	]
 
-let currentSlideIndex = 0;
+
 
 const app = new Vue ({
 	el:'#root',
 	data:{
 		slides,
 		slideActive: 'active',
+		currentSlideIndex: 0,
+		lastIndex: slides.length - 1,
 	},
 	methods:{
-		onClick(){
-			slides.show = false
+		moveRight(){
+			if(this.currentSlideIndex!=this.lastIndex){
+				this.currentSlideIndex += 1;
+			}else{
+				this.currentSlideIndex = 0;
+			};
+		},
+		moveLeft(){
+			if(this.currentSlideIndex!=0){
+				this.currentSlideIndex -= 1;
+			}else{
+				this.currentSlideIndex = this.lastIndex;
+			}
 		},
 		active(){
 			
