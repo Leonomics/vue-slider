@@ -47,8 +47,32 @@ const app = new Vue ({
 			}
 		},
 
+		autoMove: function(){
+			setInterval(function(){
+			
+			if(this.currentSlideIndex < this.lastIndex)	{
+				slides[0].classList.remove('active');
+				currentSlideIndex++;
+			}else{
+				this.currentSlideIndex = 0;
+			}
+		
+			if(this.currentSlideIndex != 0){
+				slides[this.currentSlideIndex-1].classList.remove('active');
+				slides[this.currentSlideIndex].classList.add('active');
+			}else{
+				slides[this.lastIndex].classList.remove('active');
+				slides[this.currentSlideIndex].classList.add('active');
+			}
+		
+		
+			}, 3000);
+		},
 		
 	},
+	mounted () {
+		this.autoMove()
+			  }
 })
 
 
