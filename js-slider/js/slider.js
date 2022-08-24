@@ -1,7 +1,7 @@
 // console.log('slider')
 
 const slides = [
-	slide1 = {
+	{
 		id:1,
 		media:'./img/01.jpg',
 	},
@@ -36,8 +36,7 @@ const app = new Vue ({
 			slides.show = false
 		},
 		active(){
-			var slide = document.getElementById("slide");
-  			slide.classList.add("active");
+			
 		},
 	}
 })
